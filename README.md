@@ -25,4 +25,4 @@ The Expense Tracker App is a simple Java application that allows users to track 
 
 ## Dependencies
 
-- SQLite JDBC driver: The app uses the SQLite JDBC driver library to connect to an SQLite database for data storage.
+- SQLite JDBC driver (https://github.com/xerial/sqlite-jdbc): The app uses the SQLite JDBC driver library to connect to an SQLite database for data storage.
