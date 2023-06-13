@@ -27,4 +27,6 @@ public class ExpenseTrackerController {
             view.getAmountTextField().setText("");
         }
     }
+
 }
+
