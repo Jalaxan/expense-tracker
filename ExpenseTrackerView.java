@@ -38,4 +38,35 @@ public class ExpenseTrackerView extends JPanel {
         });
 
 
+    }
+    public void setController(ExpenseTrackerController controller) {
+        this.controller = controller;
+    }
+
+    public double getAmount() {
+        String amountText = amountTextField.getText();
+        if (!amountText.isEmpty()) {
+            return Double.parseDouble(amountText);
+        }
+        return 0.0;
+    }
+
+    public String getCategory() {
+        return (String) categoryComboBox.getSelectedItem();
+    }
+
+    public JTextField getBalanceTextField() {
+        return balanceTextField;
+    }
+
+    public void addTransaction(String transaction) {
+        transactionListModel.addElement(transaction);
+    }
+
+    public void updateBalance(double balance) {
+        balanceTextField.setText(String.format("%.2f", balance));
+    }
+
+    public JTextField getAmountTextField() {
+        return amountTextField;
     }}
