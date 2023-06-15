@@ -23,7 +23,31 @@ public class ExpenseTrackerDatabase {
 
         try (Statement statement = connection.createStatement()) {
             statement.execute(createTableSQL);
-        }
-    }
+        }
+    }
 
+    public void addTransaction(double amount, String category) {
+        String insertSQL = "INSERT INTO transactions (amount, category) VALUES (?, ?);";
+
+        try (PreparedStatement preparedStatement = connection.prepareStatement(insertSQL)) {
+            preparedStatement.setDouble(1, amount);
+            preparedStatement.setString(2, category);
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public ResultSet getAllTransactions() {
+        String selectSQL = "SELECT amount, category FROM transactions ORDER BY timestamp DESC;";
+
+        try {
+            Statement statement = connection.createStatement();
+            return statement.executeQuery(selectSQL);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
 }
