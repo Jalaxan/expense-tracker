@@ -38,4 +38,23 @@ public class ExpenseTrackerView extends JPanel {
         });
 
 
-    }}
+    }
+    transactionPanel.add(amountLabel);
+        transactionPanel.add(amountTextField);
+        transactionPanel.add(categoryLabel);
+        transactionPanel.add(categoryComboBox);
+        transactionPanel.add(addButton);
+    add(transactionPanel, BorderLayout.NORTH);
+
+    // Create the wallet balance panel
+    JPanel balancePanel = new JPanel(new FlowLayout());
+
+    JLabel balanceLabel = new JLabel("Wallet Balance:");
+    balanceTextField = new JTextField(10);
+        balanceTextField.setEditable(false);
+
+        balancePanel.add(balanceLabel);
+        balancePanel.add(balanceTextField);
+    add(balancePanel, BorderLayout.SOUTH);
+
+}
